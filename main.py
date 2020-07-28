@@ -23,6 +23,13 @@ x = [] # X axis data list
 y = [] # Y axis data list
 h = [] # The predicted data 
 
+# And we need some inital values which're theta0 and theta1
+init_theta0 = 2
+init_theta1 = 1 
+
+# After Gradient Descent we goona got new theta0 and theta1
+new_theta0, new_theta1 = 0, 0
+
 def setup():
     """
     This function has only role which's setup the module 
@@ -49,11 +56,41 @@ def jCost(totalError=0):
         # I incrementing the value of totalError
         # Such as the summation operator sigmma Ʃ
     return totalError / (2*m)
+
+
+
+def gradientDescenet(learning_rate,init_theta0,init_theta1):
+    """
+    For optimizing the Hypothesis line equation H
+    """
+    
+    
+def plottingData():
+    """Only for plotting the data and the Hypothesis line"""
+    fig = plt.figure()
+    # I'll draw the origin x and y axis for clear view
+    fig, ax = plt.subplots()
+    ax.axhline(y=0, color='k',linewidth=1)
+    ax.axvline(x=0, color='k',linewidth=1)
+    # Plotting the Hypo line
+    plt.plot(x,h,label="The Hypothesis line H")
+    # Scattering the Data
+    plt.scatter(x,y,color="red",label="The data")
+    # Grid => make some squares
+    plt.grid()
+    plt.legend()
+    plt.title('The main figure baby!')
+    plt.xlabel('The X axis')
+    plt.ylabel('The Y axis')
+    plt.show()
         
 
 if __name__ == '__main__':
     setup()
-    print('The value of Jcost equal {}'.format(jCost())) # Show up Jcost value
+    # To show up Jcost value
+    print('The value of Jcost equal {}'.format(jCost())) 
+    # Plotting the main figure baby!
+    plottingData()
     
     
 
